@@ -10,10 +10,14 @@
 import math
 
 def square_number(number):
+    return number ** 2
+
+print(square_number(9))
+
+def sqaure_root(number):
     return math.sqrt(number)
 
-print(square_number(4))
-
+print(sqaure_root(9))
 ##### sum_list #####
 
 # Create a function called 'sum_list'. 
@@ -23,10 +27,18 @@ print(square_number(4))
 # It returns the sum of all the numbers inside the list (the return from the example would be 6).
 
 def sum_list(list):
+    return sum(list)
+
+def sum_list2(list):
     sum = 0
-    for element in list:
+    for element in list: #take every index in list and add to the next one
         sum += element
     return sum
+def sum_list3(list):
+    total = 0
+    for num in list:
+        total += num
+    return total
 
 print(sum_list([1,2,3]))
 
@@ -41,7 +53,7 @@ print(sum_list([1,2,3]))
 # If the number is a float, round down to the nearest whole number.
 
 def farenheit_to_celcius(farenheit):
-    return ((farenheit - 32) /9) * 5
+    return ((farenheit - 32) /9) * 5 # (farenheit - 32) * (5/9)
 
 print(farenheit_to_celcius(100))
 ##### is_planet #####
@@ -55,12 +67,18 @@ print(farenheit_to_celcius(100))
 # This ought to work regardless of capitalization and whitespace.
 
 def is_planet(string):
-    return True if string.lower().capitalize() == "Mercury" or string ==  "Venus" or string == "Earth" or string == "Jupiter" or string == "Saturn" or string == "Uranus" or string == "Neptune" or string == "Mars" else False
+    return True if string.lower().capitalize() in ["Mercury", "Venus", "Earth", "Jupiter", "Saturn", "Uranus", "Neptune", "Mars"] else False
 
 # def is_planet(string:)
 print(is_planet("mercury"))
 print(is_planet("Sun"))
 
+def is_planet2(string):
+    string = string.title().strip()
+    planet = ["Mercury", "Venus", "Earth", "Jupiter", "Saturn", "Uranus", "Neptune", "Mars"] 
+    return string in [pl. title() for pl in planet]
+
+print(is_planet2("mars"))
 ##### is_palindrome #####
 
 # Create a function called 'is_palindrome'. 
@@ -72,10 +90,16 @@ print(is_planet("Sun"))
 # As an additional challenge the function ignores white space so something like 'taco cat' would also be considered a palindrome.
 
 def is_palindrome(string):
-    new_string = "".join(string.split())
-    if new_string.lower().capitalize() == (new_string[::-1]).lower().capitalize():
+    string = "".join(string.split())
+    if string.lower().capitalize() == (string[::-1]).lower().capitalize():
         return True
     else:
         return False
     
 print(is_palindrome("taco cat"))
+
+def is_palindrome2(string):
+    new_string = string.replace(" ", "").lower()
+    return new_string == new_string[::-1]
+
+is_palindrome2("a man a plan a canal panama")
