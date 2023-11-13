@@ -8,6 +8,30 @@
 #     occupation: "Instructor",
 # }
 
+teacher  = {
+    "name": "Chett",
+    "city": "Brooklyn",
+    "numberOfCats": 2,
+    "occupation": "Instructor"}
+
+print(teacher["name"])
+
+teacher["cat_names"] = ["Octavia", "Ursular"]
+print(teacher)
+
+teacher["cat_names"] = ["Rose"]
+print(teacher)
+
+# print(teacher["age"]) # error key age does not exist
+
+teacher["age"] = [None]
+print(teacher["age"])
+
+
+# print(dict(**teacher, height = 600, ))
+new_teacher = {"eyesight" : 2020, **teacher}
+print(new_teacher)
+
 # console.log(teacher)
 # console.log(teacher.name)
 
@@ -23,3 +47,4 @@
 
 # teacher = {...teacher, age: 500}
 # console.log(teacher)
+
